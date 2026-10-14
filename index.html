@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Decided. — You talk. We decide the weekend.</title>
+<meta name="description" content="Friends say what they're craving out loud. Decided. listens, finds the overlap, and hands back one plan — with the map, the booking, and the receipts for why. Toronto demo.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23e4572e'/><text x='50' y='68' font-size='58' text-anchor='middle' fill='white' font-family='Georgia'>D</text></svg>">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="logo" href="#top" aria-label="Decided. home">Decided<span class="dot">.</span></a>
+  <nav class="topnav" aria-label="Sections">
+    <a href="#demo">Try the demo</a>
+    <a href="#how">How it decides</a>
+    <a href="#real">The real app</a>
+  </nav>
+  <a class="btn btn-small btn-dark" href="#demo">Start a crew</a>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="hero-tag">For the group chat that can never pick a place</p>
+      <h1>You talk.<br>We decide.</h1>
+      <p class="hero-sub">Everyone says out loud what they actually want to do — this week, this month, or the wild idea that feels unrealistic. Decided. listens for the overlap, does the searching, and hands back <strong>one plan</strong>: where, when, how to get there, and how to book it. Nobody has to be the one who chooses.</p>
+      <div class="hero-actions">
+        <a class="btn btn-coral" href="#demo">Start a crew — Toronto demo</a>
+        <a class="btn btn-ghost" href="#how">See how it decides</a>
+      </div>
+      <p class="hero-note">No account needed for the demo. Talk or type — your voice stays in your browser.</p>
+    </div>
+    <div class="phone" aria-label="Preview of the app flow">
+      <div class="phone-bar"><span>9:41</span><span class="phone-title">Saturday crew</span><span>···</span></div>
+      <div class="phone-body">
+        <p class="phone-q">“What would you like to do over the next week?”</p>
+        <div class="bubble bubble-you"><strong>You</strong><p>Honestly? Dumplings, then somewhere with a view. Nothing fancy, I'm tired.</p></div>
+        <div class="bubble"><strong>Maya</strong><p>I've been craving Korean BBQ forever. And vintage shopping??</p></div>
+        <div class="bubble"><strong>Jess</strong><p>Anything but another patio. Something cozy if it rains.</p></div>
+        <p class="waiting"><span class="pulse" aria-hidden="true"></span> 3 of 3 in — we have enough to plan.</p>
+        <div class="mini-plan">
+          <p class="mini-plan-title">Saturday, sorted</p>
+          <ol>
+            <li><time>12:30</time> Hand-pulled noodles, Kensington</li>
+            <li><time>14:00</time> Vintage crawl, Queen West</li>
+            <li><time>18:30</time> Japanese izakaya — the bridge pick</li>
+          </ol>
+          <p class="mini-why">Two of you said Chinese, one said Korean — so dinner leans Japanese: shared plates, grilled things, nobody loses.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="strip" aria-label="What you get">
+    <div><strong>Say it out loud</strong><span>Voice first. No forms, no polling, no 47-message thread.</span></div>
+    <div><strong>Feel heard</strong><span>Every wish is quoted back in the “why” — see exactly how yours shaped the plan.</span></div>
+    <div><strong>One decision</strong><span>One itinerary with a map, times, and a book-it button. Swap one stop, not the whole day.</span></div>
+    <div><strong>Crew pricing</strong><span>Big group coming? It drafts the group-deal ask for the table before you book.</span></div>
+  </section>
+
+  <section id="demo" class="demo">
+    <div class="demo-head">
+      <h2>Try it: the Toronto crew demo</h2>
+      <p>This runs entirely in your browser so you can feel the flow. Add your wish, bring in the demo friends (or open this page on a second phone and pass it around), and watch what happens at three check-ins.</p>
+    </div>
+
+    <div class="demo-grid">
+      <div class="card" id="wish-card">
+        <h3>1 · Say what you want</h3>
+        <label class="field"><span>Your name</span><input id="your-name" type="text" placeholder="e.g. Alex" autocomplete="given-name"></label>
+        <div class="field"><span>Pick a question</span>
+          <div class="chips" id="window-chips" role="group" aria-label="Time window">
+            <button type="button" class="chip is-on" data-window="week">What would you like to do over the next week?</button>
+            <button type="button" class="chip" data-window="month">What about the next month?</button>
+            <button type="button" class="chip" data-window="wild">Seen something cool — even if it seems unrealistic?</button>
+          </div>
+        </div>
+        <label class="field"><span id="wish-label">This week I'd love to…</span>
+          <textarea id="wish-text" rows="4" placeholder="Tap the mic and just talk — or type it the way you'd say it in the group chat."></textarea>
+        </label>
+        <div class="voice-row">
+          <button type="button" class="btn btn-dark" id="mic-btn" aria-pressed="false">🎙 Talk instead</button>
+          <span class="voice-status" id="voice-status">Mic uses your browser's speech recognition. Nothing is uploaded in this demo.</span>
+        </div>
+        <div class="field"><span>Anything else we should know? (optional)</span>
+          <div class="chips" id="vibe-chips">
+            <button type="button" class="chip" data-vibe="cheap">Keep it cheap</button>
+            <button type="button" class="chip" data-vibe="fancy">Make it a treat</button>
+            <button type="button" class="chip" data-vibe="cozy">Cozy / indoors</button>
+            <button type="button" class="chip" data-vibe="outdoors">Fresh air</button>
+            <button type="button" class="chip" data-vibe="chill">Low energy</button>
+            <button type="button" class="chip" data-vibe="big-night">Big night out</button>
+          </div>
+        </div>
+        <button type="button" class="btn btn-coral btn-block" id="add-wish">Add my wish</button>
+        <p class="fineprint" id="wish-feedback" role="status"></p>
+      </div>
+
+      <div class="card" id="crew-card">
+        <h3>2 · Waiting for your other friends</h3>
+        <div class="crew-meta">
+          <div><span class="meta-label">Crew</span><strong id="crew-name">Saturday crew · Toronto</strong></div>
+          <div><span class="meta-label">Invite code</span><strong id="crew-code">DECIDED-TO</strong></div>
+          <div><span class="meta-label">Wishes close</span><strong id="deadline">—</strong></div>
+        </div>
+        <div class="progress-wrap">
+          <div class="progress-head"><strong id="progress-text">0 of 3 friends in</strong><span id="progress-hint">Planning unlocks at 3 — or when the host says go.</span></div>
+          <div class="progress" role="progressbar" aria-label="Friends checked in" aria-valuemin="0" aria-valuemax="3" aria-valuenow="0" id="progress-bar"><i style="width:0%"></i></div>
+        </div>
+        <ul class="friends" id="friends-list"></ul>
+        <div class="crew-actions">
+          <button type="button" class="btn btn-ghost" id="invite-btn">Copy invite</button>
+          <button type="button" class="btn btn-ghost" id="simulate-btn">Simulate a friend</button>
+          <button type="button" class="btn btn-dark" id="plan-btn" disabled>Plan it for us</button>
+        </div>
+        <p class="fineprint">Demo friends have scripted wishes so one person can try the whole flow. In the real app this list fills from the invite link — <a href="#real">see below</a>.</p>
+      </div>
+    </div>
+
+    <div class="card plan-card" id="plan-card" hidden>
+      <div class="plan-head">
+        <div>
+          <h3>3 · Here's your plan</h3>
+          <p class="plan-sub" id="plan-sub">Saturday in Toronto, built from what you all actually said.</p>
+        </div>
+        <div class="rsvp" role="group" aria-label="Are you in">
+          <button type="button" class="btn btn-coral" id="rsvp-yes">Yes, I'm in</button>
+          <button type="button" class="btn btn-ghost" id="rsvp-no">Not for me</button>
+        </div>
+      </div>
+      <p class="rsvp-status" id="rsvp-status" role="status"></p>
+
+      <div class="plan-grid">
+        <div>
+          <h4 class="plan-h">We heard you</h4>
+          <ul class="heard" id="heard-list"></ul>
+          <h4 class="plan-h">Why this plan</h4>
+          <p class="why" id="why-text"></p>
+          <h4 class="plan-h">The day</h4>
+          <ol class="timeline" id="timeline"></ol>
+          <div class="plan-actions">
+            <button type="button" class="btn btn-dark" id="save-btn">Save this</button>
+            <button type="button" class="btn btn-ghost" id="swap-btn">Swap dinner</button>
+            <button type="button" class="btn btn-ghost" id="ics-btn">Save my day (.ics)</button>
+            <button type="button" class="btn btn-ghost" id="share-btn">Copy plan to send</button>
+          </div>
+          <p class="fineprint" id="save-status" role="status"></p>
+        </div>
+        <div>
+          <h4 class="plan-h">Map — Toronto</h4>
+          <div class="map" id="map" role="img" aria-label="Schematic map of the plan stops in Toronto"></div>
+          <ul class="map-links" id="map-links"></ul>
+          <div class="deal" id="deal-box">
+            <h4 class="plan-h">Crew deal check</h4>
+            <p id="deal-text">Add 5+ friends and I'll try to negotiate a group table or set menu while booking.</p>
+            <button type="button" class="btn btn-dark" id="deal-btn">Ask for a group deal</button>
+            <p class="fineprint" id="deal-status" role="status"></p>
+          </div>
+          <div class="deal">
+            <h4 class="plan-h">Make it easy to book</h4>
+            <p class="fineprint" style="margin-top:0">Demo buttons open the venue search you'd land on. In the real app this holds the table first, then asks the crew to confirm.</p>
+            <div class="plan-actions" id="book-actions"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" id="saved-card" hidden>
+      <h3>Saved plans</h3>
+      <ul class="saved" id="saved-list"></ul>
+    </div>
+  </section>
+
+  <section id="how" class="how">
+    <h2>How it decides (so nobody has to)</h2>
+    <div class="how-grid">
+      <article><h3>1. Everyone talks, nobody votes</h3><p>Each person answers out loud in their own words. No poll, no shortlist to rank — ranking is exactly the homework nobody wants. Rambling is fine; that's the input the decider is built for.</p></article>
+      <article><h3>2. It finds the wish underneath</h3><p>“Korean BBQ” and “dumplings” are both really saying <em>shared plates, grilled things, order too much</em>. The planner works at that level — cravings, energy, budget, weather-proofing — not keyword bingo.</p></article>
+      <article><h3>3. Bridges beat winners</h3><p>When wishes pull apart, it looks for the third thing that honours both: Chinese + Korean cravings became a Japanese izakaya night in the example above. Everyone can point at the plan and find their wish inside it.</p></article>
+      <article><h3>4. One plan, with receipts</h3><p>You get one itinerary, the map, the walking order, and a plain-language “why” that quotes each friend. React with <em>I'm in</em>, <em>not for me</em>, or swap a single stop — never “so… what does everyone want to do?” again.</p></article>
+    </div>
+    <div class="rules">
+      <h3>The little rules that make it work</h3>
+      <ul>
+        <li><strong>How many is enough?</strong> Three friends checked in unlocks planning. Fewer than that and you're just planning for whoever shouted first.</li>
+        <li><strong>Host can always call it.</strong> The person who started the crew can tap “Plan it for us” early — late friends' wishes fold into the next plan.</li>
+        <li><strong>A soft deadline, not a hard one.</strong> Wishes close Thursday 8&nbsp;p.m. for a Saturday plan (the demo shows your live countdown). Stragglers get a nudge, not a lockout.</li>
+        <li><strong>Wild cards stay wild.</strong> “Unrealistic” wishes (Toronto Islands at sunset, a last-minute concert) are kept as stretch picks — the planner books the sure thing and flags the dream if tickets or weather line up.</li>
+        <li><strong>Nobody is the villain.</strong> The app made the call, so nobody has to defend a choice — or apologize for hating one. “Not for me” quietly re-plans around you.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="real" class="real">
+    <h2>How the real app gets built</h2>
+    <p class="real-intro">This page is the clickable sketch. The real version keeps the exact same screens — what changes is what's behind them:</p>
+    <div class="how-grid">
+      <article><h3>Accounts &amp; crews</h3><p>Phone-number or magic-link sign-in (no passwords), one crew = one link. Friends tap the link, land mid-conversation, and talk. Crew size, quorum (default 3), and the wish deadline are set by the host at creation.</p></article>
+      <article><h3>Voice in, wishes out</h3><p>On-device speech-to-text where the phone offers it, server transcription as backup. Each wish is stored as audio + transcript + the handful of signals pulled from it: cuisines, energy, budget, indoor/outdoor, “dream” flag.</p></article>
+      <article><h3>The decider</h3><p>A planner that scores real, currently-open Toronto places (hours, distance between stops, price, group size, weather) against the crew's combined signals — then writes the “why” from the actual wishes, quoting people back to themselves.</p></article>
+      <article><h3>Booking &amp; crew deals</h3><p>Deep links and reservation partners hold the table; for crews of 6+ the app sends the group-deal ask (set menu, off-peak seating, split bills) and reports back what the venue said — confirmed in the demo above as a draft you approve before anything is sent.</p></article>
+    </div>
+    <p class="real-intro">Toronto is the test city because the demo data above is hand-checked. City two is a data job, not a rewrite: the planner runs on places + wishes, not on Toronto-specific code.</p>
+  </section>
+
+  <footer class="footer">
+    <p><strong>Decided.</strong> — a demo about ending the “so what should we do?” thread. Built as a shareable sketch; no real bookings are made and no voice leaves your browser.</p>
+    <p><a href="#demo">Start a crew</a> · <a href="#how">How it decides</a> · Toronto demo</p>
+  </footer>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
